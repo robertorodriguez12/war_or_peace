@@ -85,8 +85,9 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    assert_equal(player1, turn.winner)
+    type = turn.type
+    winner = turn.winner(type)
+    assert_equal(player1, winner)
 
   end
 
@@ -106,8 +107,8 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    winner = turn.winner
+    type = turn.type
+    winner = turn.winner(type)
 
     turn.pile_cards
 
@@ -132,8 +133,8 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    winner = turn.winner
+    type = turn.type
+    winner = turn.winner(type)
 
     turn.pile_cards
 
@@ -185,8 +186,9 @@ class TurnTest < Minitest::Test
     turn = Turn.new(player1, player2)
     turn.type
     turn = Turn.new(player1, player2)
-
-    assert_equal(player2, turn.winner)
+    type = turn.type
+    winner = turn.winner(type)
+    assert_equal(player2, winner)
 
 
   end
@@ -208,8 +210,8 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    winner = turn.winner
+    type = turn.type
+    winner = turn.winner(type)
 
     turn.pile_cards
 
@@ -234,8 +236,8 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    winner = turn.winner
+    type = turn.type
+    winner = turn.winner(type)
 
 
     turn.pile_cards
@@ -287,8 +289,8 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    winner = turn.winner
+    type = turn.type
+    winner = turn.winner(type)
 
     assert_equal "No Winner", winner
 
@@ -309,8 +311,8 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    winner = turn.winner
+    type = turn.type
+    winner = turn.winner(type)
 
     turn.pile_cards
 
@@ -319,7 +321,7 @@ class TurnTest < Minitest::Test
     assert_equal(1, player1.deck.cards.length)
     assert_equal(deck2 ,player2.deck)
     assert_equal(1, player2.deck.cards.length)
-    
+
   end
 
 end
