@@ -20,7 +20,7 @@ class Turn
 
   end
 
-  def winner
+  def winner(type)
     return player1 if type == :basic && player1.deck.rank_of_card_at(0) > player2.deck.rank_of_card_at(0)
     return player2 if type == :basic && player1.deck.rank_of_card_at(0) < player2.deck.rank_of_card_at(0)
     return player1 if type == :war && player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) > player2.deck.rank_of_card_at(2)
