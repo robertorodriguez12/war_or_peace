@@ -58,7 +58,7 @@ class Game
 
     if @start == true
 
-    until player1.has_lost? || player2.has_lost? || turn_counter == 53
+    until player1.has_lost? || player2.has_lost? || turn_counter == 1000000
       turn = Turn.new(player1, player2)
       @turn_counter += 1
       type = turn.type
@@ -76,7 +76,7 @@ class Game
         turn.pile_cards
         p "Turn #{turn_counter}: *Mutually Assured Destruction* #{turn.spoils_of_war.length} cards removed from play!"
       end
-      if @turn_counter == 53
+      if @turn_counter == 1000000
         p "----DRAW----"
       end
     end
